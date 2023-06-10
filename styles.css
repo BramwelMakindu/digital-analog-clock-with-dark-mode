@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body{
+    background-color: #282828;
+    color: rgb(33, 119, 216);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    transition: backgroud-color .2s ease;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(25, 25, 26);
+    box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.5), inset -4px -4px 10px rgba(67, 67, 67, 0.5), 4px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color .2s ease;
+}
+
+h1{
+    font-size: 40px;
+}
+
+span{
+    margin: 0 1rem;
+    font-size: 40px;
+}
+
+/*----------analog-clock--------*/
+
+.analog-clock{
+    margin-top: 2rem;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background-color: rgb(25, 25, 26);
+    position: relative;
+    border: 7px solid #282828;
+    box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.5), inset -4px -4px 10px rgba(67, 67, 67, 0.5), 4px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color .2s ease;
+}
+
+.numbers div{
+    position: absolute;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.twelve{
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.three{
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.six{
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nine{
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hands{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.hands::before{
+    content: '';
+    height: 20px;
+    width: 20px;
+    background-color: rgb(33, 119, 216);
+    border-radius: 50%;
+    z-index: 4;
+}
+
+.hands div{
+    background-color: #bdbdcb;
+    width: 7px;
+    height: 120px;
+    position: absolute;
+    transform-origin: bottom center;
+    bottom: 50%;
+    z-index: 3;
+    border-radius: 50% 50% 0 0;
+}
+
+.hour-hand{
+    transform: rotate(45deg);
+    height: 80px !important;
+    transition: backgroud-color .2s ease;
+}
+
+.minute-hand{
+    transform: rotate(80deg);
+    height: 100px !important;
+    transition: backgroud-color .2s ease;
+}
+
+.second-hand{
+    background-color: #10dac9 !important;
+    transition: backgroud-color .2s ease;
+}
+
+.toggle{
+    height: 30px;
+    width: 60px;
+    margin-bottom: 1rem;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #a4a4c5;
+    box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.5), inset -4px -4px 10px rgba(67, 67, 67, 0.5), 4px 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgb(25, 25, 26);
+    transition: background-color .2s ease;
+}
+
+.toggle-ball{
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    left: 2px;
+    background-color: #6e7bf1;
+    transition: transform .3s ease;
+}
+
+
+/*------light Mode-----*/
+
+body.active{
+    background-color: rgb(223, 224, 226);
+}
+
+.container.active{
+    background-color: #bdbdcb;
+    border-radius: 10px;
+    border: 7px solid #bdbdcb;
+    box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(139, 139, 139, 0.5), inset -4px -4px 10px rgba(124, 123, 123, 0.5), 4px 4px 10px rgba(53, 52, 52, 0.3);
+}
+
+.analog-clock.active{
+    background-color: #a4a4c5;
+    border: 7px solid #bdbdcb;
+    box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(139, 139, 139, 0.5), inset -4px -4px 10px rgba(124, 123, 123, 0.5), 4px 4px 10px rgba(53, 52, 52, 0.3);
+}
+
+.analog-clock.active .hour-hand{
+    background-color: rgb(75, 69, 69);
+}
+.analog-clock.active .minute-hand{
+    background-color: rgb(75, 69, 69);
+}
+
+.analog-clock.active .second-hand{
+    background-color: #4655df !important;
+}
+
+.toggle.active{
+    background-color: #a4a4c5;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggle.active .toggle-ball{
+    background-color: #282828;
+    transform: translateX(30px);
+}
+
+/*---------for small screens---*/
+
+@media screen and (max-width: 500px){
+    .container, .analog-clock{
+        width: 300px;
+    }
+
+    .container{
+        padding: 20px;
+    }
+
+    h1{
+        font-size: 35px;
+    }
+
+    .analog-clock{
+        height: 300px;
+    }
+}
